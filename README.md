@@ -64,7 +64,3 @@ Quantidade de cadastros de produtos. Quantidade de cadastros de departamentos. Q
 1. Clone o repositório (`git clone https://github.com/seu-usuario/seu-projeto.git`)
 2. Instale as dependências (`npm install` ou `dotnet restore`)
 3. Execute o projeto (`npm start` ou `dotnet run`)
-
-## Licença
-
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE.md](LICENSE.md) para detalhes.
