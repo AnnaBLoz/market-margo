@@ -1,7 +1,5 @@
 # MARKET-MARGO
 
-Este é o README do seu incrível projeto!
-
 ## Ferramentas Utilizadas
 
 - **Front-End:** [Angular](https://angular.io/)
