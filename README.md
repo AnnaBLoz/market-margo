@@ -1,5 +1,9 @@
 # MARKET-MARGO
 
+## Documentação
+
+- **Confluence:** [Atlassian](https://fazacontecer.atlassian.net/l/cp/fjNC3Qq5)
+
 ## Ferramentas Utilizadas
 
 - **Front-End:** [Angular](https://angular.io/)
