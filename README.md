@@ -3,6 +3,7 @@
 ## Documentação
 
 - **Confluence:** [Atlassian](https://fazacontecer.atlassian.net/l/cp/fjNC3Qq5)
+- **Mockup:** [Figma](https://www.figma.com/file/oa58F9D91d7wWF2Xr7UyeU/Market-Margo?type=design&node-id=13%3A2&mode=design&t=DWUgXRhaEEzoS8cu-1)
 
 ## Ferramentas Utilizadas
 
