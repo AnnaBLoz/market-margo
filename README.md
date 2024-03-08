@@ -52,7 +52,7 @@ Monitoramento do estoque de produtos, exibindo informações sobre a quantidade 
 
 ### Painel de Controle
 
-Quantidade de cadastros de produtos. Quantidade de cadastros de departamentos. Quantidade de cadastros de usuários.
+Quantidade de cadastros de produtos (Hoje). Transações(Hoje). Vendas com sucesso(Hoje). Vendas com insucesso(Hoje). Quantidade de produtos por categoria(Hoje). Vendas hoje por produto. 
 
 ## Como Contribuir
 
