@@ -1,9 +1,12 @@
-:host {
-  #exampleColorInput {
-    min-width: 2.5rem;
-  }
-  .color-box {
-    min-width: 2rem;
-    min-height: 2rem;
-  }
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-button {
+  margin-right: auto;
+}
+
+.right-button {
+  margin-left: auto;
 }

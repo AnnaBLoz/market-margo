@@ -1,35 +1,71 @@
 <div class="fade-in">
   <c-card class="mb-4">
     <c-card-header>
-      Theme colors
+      Novo Usuário
     </c-card-header>
     <c-card-body>
-      <c-row>
-        <app-theme-color color="primary">
-          <h6>Brand Primary Color</h6>
-        </app-theme-color>
-        <app-theme-color color="secondary">
-          <h6>Brand Secondary Color</h6>
-        </app-theme-color>
-        <app-theme-color color="success">
-          <h6>Brand Success Color</h6>
-        </app-theme-color>
-        <app-theme-color color="danger">
-          <h6>Brand Danger Color</h6>
-        </app-theme-color>
-        <app-theme-color color="warning">
-          <h6>Brand Warning Color</h6>
-        </app-theme-color>
-        <app-theme-color color="info">
-          <h6>Brand Info Color</h6>
-        </app-theme-color>
-        <app-theme-color color="light">
-          <h6>Brand Light Color</h6>
-        </app-theme-color>
-        <app-theme-color color="dark">
-          <h6>Brand Dark Color</h6>
-        </app-theme-color>
-      </c-row>
+      <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input type="text" class="form-control" id="nome" placeholder="Digite seu nome">
+      </div>
+      <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail">
+      </div>
+      <div class="form-group">
+        <label for="senha">Senha:</label>
+        <input type="password" class="form-control" id="senha" placeholder="Digite a senha">
+      </div>
+      <div class="form-group">
+        <label for="confirmasenha">Confirme a Senha:</label>
+        <input type="password" class="form-control" id="confirmasenha" placeholder="Confirme a senha">
+      </div>
+      <div class="form-group">
+        <label for="funcao">Função:</label>
+        <select class="form-control" id="funcao">
+          <option value="">Selecione a função</option>
+          <option value="gerente">Gerente</option>
+          <option value="vendedor">Vendedor</option>
+          <option value="atendimento">Atendimento ao Cliente</option>
+        </select>
+      </div>
+      <div class="button-container">
+        <button cButton color="primary" class="mt-3 left-button">Limpar</button>
+        <button cButton color="primary" class="mt-3 right-button">Salvar</button>
+    </div>
+    </c-card-body>
+  </c-card>
+</div>
+
+<div class="fade-in">
+  <c-card class="mb-4">
+    <c-card-header>
+      Usuários Registrados
+    </c-card-header>
+    <c-card-body>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Função</th>
+            <th>Situação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Linhas da tabela podem ser adicionadas aqui -->
+          <!-- Por exemplo: -->
+          <tr>
+            <td>001</td>
+            <td>João</td>
+            <td>joao.com</td>
+            <td>Vendedor</td>
+            <td>Ativo</td>
+          </tr>
+          <!-- Adicione mais linhas conforme necessário -->
+        </tbody>
+      </table>
     </c-card-body>
   </c-card>
 </div>

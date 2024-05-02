@@ -124,4 +124,35 @@ export class DashboardComponent implements OnInit {
     this.chartsData.initMainChart(value);
     this.initCharts();
   }
+
+  chartPieData = {
+    labels: ['Bebidas', 'Salgados', 'Doces'],
+    datasets: [
+      {
+        data: [300, 50, 100],
+        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+        hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
+      }
+    ]
+  };
+
+  chartPieOptions = {
+    responsive: true,
+    maintainAspectRatio: false, // Isso permite definir a largura e altura manualmente
+    width: 400, // Define a largura do gráfico
+    height: 300 // Define a altura do gráfico
+  };
+
+  months = ['Coca-Cola', 'Coxinha', 'Batata', 'Queijo-Prato', 'Oreo', 'Tomate', 'Ovomaltine'];
+
+  chartBarData = {
+    labels: [...this.months].slice(0, 7),
+    datasets: [
+      {
+        label: 'Categoria',
+        backgroundColor: '#f87979',
+        data: [40, 20, 12, 39, 17, 42, 79]
+      }
+    ]
+  };
 }

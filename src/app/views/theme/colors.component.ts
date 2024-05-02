@@ -4,7 +4,8 @@ import { DOCUMENT } from '@angular/common';
 import { getStyle, rgbToHex } from '@coreui/utils';
 
 @Component({
-  templateUrl: 'colors.component.html'
+  templateUrl: 'colors.component.html',
+  styleUrls: ['./colors.component.scss'],
 })
 export class ColorsComponent implements OnInit, AfterViewInit {
 
