@@ -1,6 +1,6 @@
 import {
   DomSanitizer
-} from "./chunk-ASW4NEHS.js";
+} from "./chunk-KBFG6U46.js";
 import {
   NgClass,
   NgIf
@@ -604,4 +604,4 @@ export {
   IconComponent,
   IconModule
 };
-//# sourceMappingURL=chunk-QIXUGNHJ.js.map
+//# sourceMappingURL=chunk-5XE4AORR.js.map

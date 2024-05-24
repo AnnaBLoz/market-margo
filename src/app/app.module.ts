@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 
 // Import containers
 import { DefaultFooterComponent, DefaultHeaderComponent, DefaultLayoutComponent } from './containers';
+import { HttpClientModule } from '@angular/common/http';
 
 import {
   AvatarModule,
@@ -33,7 +34,7 @@ import {
   SharedModule,
   SidebarModule,
   TabsModule,
-  UtilitiesModule
+  UtilitiesModule,
 } from '@coreui/angular';
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
@@ -72,7 +73,8 @@ const APP_CONTAINERS = [
     BadgeModule,
     ListGroupModule,
     CardModule,
-    NgScrollbarModule
+    NgScrollbarModule,
+    HttpClientModule
   ],
   providers: [
     {
