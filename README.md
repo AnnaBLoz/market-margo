@@ -4,6 +4,7 @@
 
 - **Confluence:** [Atlassian](https://fazacontecer.atlassian.net/l/cp/fjNC3Qq5)
 - **Mockup:** [Figma](https://www.figma.com/file/oa58F9D91d7wWF2Xr7UyeU/Market-Margo?type=design&node-id=0-1&mode=design)
+- **Jira:**  [Atlassian](https://fazacontecer.atlassian.net/jira/core/projects/MARK/board)
 
 ## Ferramentas Utilizadas
 
@@ -54,16 +55,13 @@ Monitoramento do estoque de produtos, exibindo informações sobre a quantidade 
 
 Quantidade de cadastros de produtos (Hoje). Transações(Hoje). Vendas com sucesso(Hoje). Vendas com insucesso(Hoje). Quantidade de produtos por categoria(Hoje). Vendas hoje por produto. 
 
-## Como Contribuir
 
-1. Fork o projeto
-2. Crie uma nova branch (`git checkout -b feature/sua-feature`)
-3. Faça commit das suas mudanças (`git commit -am 'Adiciona uma nova feature'`)
-4. Faça push para a branch (`git push origin feature/sua-feature`)
-5. Abra um Pull Request
+## Como Executar o Projeto (FRONT-END)
 
-## Como Executar o Projeto
+1. Clone o repositório (`git clone https://github.com/AnnaBLoz/market-margo.git`)
+2. Instale as dependências (`npm install`)
+3. Execute o projeto (`ng serve`)
 
-1. Clone o repositório (`git clone https://github.com/seu-usuario/seu-projeto.git`)
-2. Instale as dependências (`npm install` ou `dotnet restore`)
-3. Execute o projeto (`npm start` ou `dotnet run`)
+## PROJETO Back-End
+
+- **BackEnd** [GIT]('https://github.com/SabineSantos21/MarketMargoAPI')
