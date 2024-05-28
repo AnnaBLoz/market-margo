@@ -16,12 +16,12 @@ export const navItems: INavData[] = [
    },
    {
      name: 'Usuários',
-     url: '/theme/colors',
+     url: '/notifications',
      iconComponent: { name: 'cil-user' }
    },
    {
      name: 'Produtos',
-     url: '/theme/typography',
+     url: '/widgets',
      iconComponent: { name: 'cil-layers' }
    },
   // {
