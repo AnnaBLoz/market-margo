@@ -14,11 +14,11 @@
                   <span cInputGroupText>
                     <svg cIcon name="cilUser"></svg>
                   </span>
-                  <input 
+                  <input
                   [(ngModel)]="email"
-                  autoComplete="username" 
-                  cFormControl 
-                  placeholder="Username" 
+                  autoComplete="email"
+                  cFormControl
+                  placeholder="Email"
                   [ngModelOptions]="{standalone: true}"
                   />
                 </c-input-group>
@@ -30,7 +30,7 @@
                     [(ngModel)]="senha"
                     autoComplete="current-password"
                     cFormControl
-                    placeholder="Password"
+                    placeholder="Senha"
                     type="password"
                     [ngModelOptions]="{standalone: true}"
                   />
@@ -53,7 +53,7 @@
           <c-card class="imgLogin">
             <img src="assets/img/image/marketMargo.png">
           </c-card>
-          
+
         </c-card-group>
       </c-col>
     </c-row>
