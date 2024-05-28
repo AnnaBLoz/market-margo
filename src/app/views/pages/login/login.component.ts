@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -14,19 +15,26 @@ const httpOptions = {
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  email: string = '';
+  senha: string = '';
+  loginError: boolean = false;
 
-  constructor(private http: HttpClient) {} // Certifique-se de que o HttpClient está injetado corretamente
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) {} 
 
   login() {
     let obj = {
-      email: 'sabinefreiman@gmail.com',
-      senha: '123'
+      email: this.email,
+      senha: this.senha
     };
 
     this.loginAPI(obj).subscribe(response => {
       console.log(response);
+      this.router.navigate(['/dashboard']); 
     }, error => {
-      console.error(error);
+      this.loginError = true;
     });
   }
 

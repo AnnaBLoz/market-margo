@@ -5,23 +5,34 @@
         <c-card-group>
           <c-card class="p-4">
             <c-card-body>
-              <form cForm>
+              <form cForm  (ngSubmit)="login()">
                 <h1>Entrar</h1>
+                <div *ngIf="loginError" class="alert alert-danger">
+                  Usuário ou senha estão incorretos.
+                </div>
                 <c-input-group class="mb-3">
                   <span cInputGroupText>
                     <svg cIcon name="cilUser"></svg>
                   </span>
-                  <input autoComplete="username" cFormControl placeholder="Username" />
+                  <input 
+                  [(ngModel)]="email"
+                  autoComplete="username" 
+                  cFormControl 
+                  placeholder="Username" 
+                  [ngModelOptions]="{standalone: true}"
+                  />
                 </c-input-group>
                 <c-input-group class="mb-4">
                   <span cInputGroupText>
                     <svg cIcon name="cilLockLocked"></svg>
                   </span>
                   <input
+                    [(ngModel)]="senha"
                     autoComplete="current-password"
                     cFormControl
                     placeholder="Password"
                     type="password"
+                    [ngModelOptions]="{standalone: true}"
                   />
                 </c-input-group>
                 <c-row>
