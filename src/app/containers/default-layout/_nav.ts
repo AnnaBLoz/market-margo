@@ -12,7 +12,7 @@ export const navItems: INavData[] = [
    },
    {
      name: 'Usuários',
-     url: '/theme/colors',
+     url: '/registers/user',
      iconComponent: { name: 'cil-user' }
    },
    {

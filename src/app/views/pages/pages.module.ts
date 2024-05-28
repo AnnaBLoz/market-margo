@@ -12,13 +12,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 
-
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
     Page404Component,
-    Page500Component
+    Page500Component,
   ],
   imports: [
     CommonModule,
@@ -33,5 +32,4 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     AppRoutingModule
   ]
 })
-export class PagesModule {
-}
+export class PagesModule {}

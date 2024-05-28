@@ -31,9 +31,9 @@ const routes: Routes = [
           import('./views/theme/theme.module').then((m) => m.ThemeModule)
       },
       {
-        path: 'base',
+        path: 'registers',
         loadChildren: () =>
-          import('./views/base/base.module').then((m) => m.BaseModule)
+          import('./views/registers/registers.module').then((m) => m.RegistersModule)
       },
       {
         path: 'buttons',

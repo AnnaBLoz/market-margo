@@ -1,0 +1,116 @@
+<div class="fade-in">
+  <c-card class="mb-4">
+    <c-card-header>
+      Novo Usuário
+    </c-card-header>
+    
+    <div *ngIf="alert.visivel" class="{{alert.tipo}}">
+      {{alert.mensagem}}
+    </div>
+
+    <c-card-body>
+      <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input 
+        type="text" 
+        class="form-control" 
+        id="nome" 
+        placeholder="Digite seu nome"
+        [(ngModel)]="nome"
+        [ngModelOptions]="{standalone: true}"
+        >
+      </div>
+      <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input 
+        type="email" 
+        class="form-control" 
+        id="email" 
+        placeholder="Digite seu e-mail"
+        [(ngModel)]="email">
+      </div>
+      <div class="form-group">
+        <label for="senha">Senha:</label>
+        <input 
+        type="password" 
+        class="form-control" 
+        id="senha" 
+        placeholder="Digite a senha"
+        [(ngModel)]="senha"
+        >
+      </div>
+      <div class="form-group">
+        <label for="confirmasenha">Confirme a Senha:</label>
+        <input 
+        type="password" 
+        class="form-control" 
+        id="confirmasenha" 
+        placeholder="Confirme a senha"
+        [(ngModel)]="confirmasenha"
+        >
+      </div>
+      <div class="form-group">
+        <label for="funcao">Função:</label>
+        <select 
+        class="form-control" 
+        id="funcao"
+        [(ngModel)]="funcao"
+        >
+          <option value="">Selecione a função</option>
+          <option value="1">Gerente</option>
+          <option value="2">Estoquista</option>
+          <option value="3">Administrador</option>
+          <option value="4">Caixa</option>
+        </select>
+      </div>
+      <div class="button-container">
+        <button 
+        cButton 
+        color="primary" 
+        class="mt-3 left-button"
+        (click)="limpar()"
+        >
+          Limpar
+        </button>
+        <button 
+        cButton 
+        color="primary" 
+        class="mt-3 right-button"
+        (click)="salvar()"
+        >
+          Salvar
+        </button>
+    </div>
+    </c-card-body>
+  </c-card>
+</div>
+
+<div class="fade-in">
+  <c-card *ngIf="usuarios.length > 0" class="mb-4">
+    <c-card-header>
+      Usuários Registrados
+    </c-card-header>
+    <c-card-body>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Função</th>
+            <th>Situação</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let usuario of usuarios">
+          <tr>
+            <td>{{ usuario.id }}</td>
+            <td>{{ usuario.nome }}</td>
+            <td>{{ usuario.email }}</td>
+            <td>{{ usuario.nomeFuncao }}</td>
+            <td>{{ usuario.ativo == true ? 'Ativo' : 'False'}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </c-card-body>
+  </c-card>
+</div>
