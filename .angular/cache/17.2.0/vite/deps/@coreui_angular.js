@@ -1,15 +1,4 @@
 import {
-  IconDirective
-} from "./chunk-5XE4AORR.js";
-import {
-  ActivatedRoute,
-  NavigationEnd,
-  Router,
-  RouterLink,
-  RouterLinkActive,
-  RouterModule
-} from "./chunk-KHAFZFEB.js";
-import {
   Platform,
   _getEventTarget,
   _getFocusedElementPierceShadowDom,
@@ -19,10 +8,15 @@ import {
   coerceElement,
   coerceNumberProperty,
   normalizePassiveListenerOptions
-} from "./chunk-CL2YCIUA.js";
+} from "./chunk-IQ2KI7QE.js";
 import {
-  takeUntilDestroyed
-} from "./chunk-LVTRCAYA.js";
+  ActivatedRoute,
+  NavigationEnd,
+  Router,
+  RouterLink,
+  RouterLinkActive,
+  RouterModule
+} from "./chunk-A2GDQURZ.js";
 import {
   AnimationBuilder,
   animate,
@@ -34,9 +28,12 @@ import {
   transition,
   trigger,
   useAnimation
-} from "./chunk-E557RT4K.js";
-import "./chunk-KBFG6U46.js";
-import "./chunk-ZYD6L4PC.js";
+} from "./chunk-6DZ2OGK6.js";
+import {
+  IconDirective
+} from "./chunk-KNQPPHGV.js";
+import "./chunk-YBDCWZ6L.js";
+import "./chunk-DEBGSTH4.js";
 import {
   AsyncPipe,
   DOCUMENT,
@@ -45,9 +42,10 @@ import {
   NgTemplateOutlet,
   isPlatformBrowser,
   isPlatformServer
-} from "./chunk-ALY4IGBN.js";
+} from "./chunk-I53IZ5CN.js";
 import {
   APP_ID,
+  BehaviorSubject,
   CSP_NONCE,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -67,23 +65,40 @@ import {
   InputFlags,
   NgModule,
   NgZone,
+  Observable,
   Optional,
   Output,
   PLATFORM_ID,
   Pipe,
   Renderer2,
   RendererFactory2,
+  Subject,
   TemplateRef,
   ViewChild,
   ViewContainerRef,
+  assertInInjectionContext,
   booleanAttribute,
+  combineLatest,
+  concat,
+  debounceTime,
+  distinctUntilChanged,
   effect,
+  filter,
+  finalize,
   forwardRef,
   fromEvent,
   inject,
+  map,
   numberAttribute,
+  of,
   setClassMetadata,
   signal,
+  skip,
+  startWith,
+  take,
+  takeUntil,
+  withLatestFrom,
+  zipWith,
   ɵɵInheritDefinitionFeature,
   ɵɵInputTransformsFeature,
   ɵɵNgOnChangesFeature,
@@ -142,26 +157,7 @@ import {
   ɵɵtextInterpolate,
   ɵɵtextInterpolate1,
   ɵɵviewQuery
-} from "./chunk-NYZWDBON.js";
-import {
-  BehaviorSubject,
-  Observable,
-  Subject,
-  combineLatest,
-  concat,
-  debounceTime,
-  distinctUntilChanged,
-  filter,
-  finalize,
-  map,
-  of,
-  skip,
-  startWith,
-  take,
-  takeUntil,
-  withLatestFrom,
-  zipWith
-} from "./chunk-KM4XI7ZI.js";
+} from "./chunk-MTH2SWMI.js";
 import {
   __privateAdd,
   __privateGet,
@@ -169,6 +165,21 @@ import {
   __spreadProps,
   __spreadValues
 } from "./chunk-HKZODMRZ.js";
+
+// node_modules/@angular/core/fesm2022/rxjs-interop.mjs
+function takeUntilDestroyed(destroyRef) {
+  if (!destroyRef) {
+    assertInInjectionContext(takeUntilDestroyed);
+    destroyRef = inject(DestroyRef);
+  }
+  const destroyed$ = new Observable((observer) => {
+    const unregisterFn = destroyRef.onDestroy(observer.next.bind(observer));
+    return unregisterFn;
+  });
+  return (source) => {
+    return source.pipe(takeUntil(destroyed$));
+  };
+}
 
 // node_modules/@popperjs/core/lib/enums.js
 var top = "top";
@@ -19686,4 +19697,13 @@ export {
   WidgetStatEComponent,
   WidgetStatFComponent
 };
+/*! Bundled license information:
+
+@angular/core/fesm2022/rxjs-interop.mjs:
+  (**
+   * @license Angular v17.2.1
+   * (c) 2010-2022 Google LLC. https://angular.io/
+   * License: MIT
+   *)
+*/
 //# sourceMappingURL=@coreui_angular.js.map

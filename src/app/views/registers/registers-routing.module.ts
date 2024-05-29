@@ -4,6 +4,7 @@ import { UserComponent } from './user/user.component';
 import { ProdutoComponent } from './produto/produto.component';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { GondolaComponent } from './gondola/gondola.component';
+import { CaixaComponent } from './caixa/caixa.component';
 
 const routes: Routes = [
     {
@@ -30,6 +31,13 @@ const routes: Routes = [
     {
         path: 'gondola',
         component: GondolaComponent,
+        data: {
+            title: 'Produto'
+        }
+    },
+    {
+        path: 'caixa',
+        component: CaixaComponent,
         data: {
             title: 'Produto'
         }

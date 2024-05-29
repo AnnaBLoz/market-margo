@@ -9,13 +9,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { GondolaComponent } from './gondola/gondola.component';
+import { CaixaComponent } from './caixa/caixa.component';
 
 @NgModule({
   declarations: [
     UserComponent,
     ProdutoComponent,
     CategoriaComponent,
-    GondolaComponent
+    GondolaComponent,
+    CaixaComponent
   ],
   imports: [
     CommonModule,

@@ -112,7 +112,7 @@ export const navItems: INavData[] = [
    },
    {
      name: 'Caixa',
-     url: '/forms',
+     url: '/registers/caixa',
      iconComponent: { name: 'cil-notes' },
   //   children: [
   //     {
