@@ -78,9 +78,12 @@ export class UserComponent implements OnInit {
   getUsuarios() {
     this.getUsuariosAPI().subscribe(response => {
       this.usuarios = response;
-      console.log(this.usuarios);
     }, error => {
-      console.error('Erro ao obter usuários', error);
+      this.alert = {
+        visivel: true,
+        tipo:'alert alert-danger',
+        mensagem: 'Erro ao obter usuários. Tente novamente.'
+      }
     });
   }
 

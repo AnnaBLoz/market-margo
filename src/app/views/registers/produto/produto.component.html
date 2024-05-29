@@ -1,0 +1,64 @@
+<div class="fade-in">
+  <c-card class="mb-4">
+    <c-card-header>
+      Novo Produto
+    </c-card-header>
+
+    <div *ngIf="alert.visivel" class="{{alert.tipo}}">
+      {{alert.mensagem}}
+    </div>
+
+    <c-card-body>
+      <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input type="text" class="form-control" id="nome" placeholder="Digite o nome" [(ngModel)]="nome">
+      </div>
+      <div class="form-group">
+        <label for="setor">Setor:</label>
+        <input type="text" class="form-control" id="setor" placeholder="Digite o setor" [(ngModel)]="setor">
+      </div>
+      <div class="form-group">
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" class="form-control" id="quantidade" placeholder="Digite a quantidade" [(ngModel)]="quantidade">
+      </div>
+      <div class="form-group">
+        <label for="preco">Preço:</label>
+        <input type="number" class="form-control" id="preco" placeholder="Digite o preço" [(ngModel)]="preco">
+      </div>
+      <div class="button-container">
+        <button cButton color="primary" class="mt-3 left-button" (click)="limpar()">Limpar</button>
+        <button cButton color="primary" class="mt-3 right-button" (click)="salvar()">Salvar</button>
+      </div>
+    </c-card-body>
+  </c-card>
+</div>
+
+<div class="fade-in">
+  <c-card class="mb-4">
+    <c-card-header>
+      Produtos Registrados
+    </c-card-header>
+    <c-card-body>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Setor</th>
+            <th>Quantidade</th>
+            <th>Preço</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let produto of produtos">
+            <td>{{ produto.id }}</td>
+            <td>{{ produto.nome }}</td>
+            <td>{{ produto.setor }}</td>
+            <td>{{ produto.quantidade }}</td>
+            <td>R$ {{ produto.preco }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </c-card-body>
+  </c-card>
+</div>

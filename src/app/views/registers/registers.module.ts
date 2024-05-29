@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserComponent } from './user/user.component';
+import { ProdutoComponent } from './produto/produto.component';
 import { RegistersRoutingModule } from './registers-routing.module';
 import { ButtonModule, CardModule, FormModule, GridModule } from '@coreui/angular';
 import { IconModule } from '@coreui/icons-angular';
@@ -9,7 +10,8 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    UserComponent
+    UserComponent,
+    ProdutoComponent
   ],
   imports: [
     CommonModule,
