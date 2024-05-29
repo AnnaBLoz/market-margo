@@ -1,0 +1,19 @@
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    background-color: #01AF72;
+    color: white;
+    /* Para garantir que o texto seja legível */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #01AF72;
+    /* Cor de fundo ao passar o mouse */
+}

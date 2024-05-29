@@ -7,11 +7,13 @@ import { ButtonModule, CardModule, FormModule, GridModule } from '@coreui/angula
 import { IconModule } from '@coreui/icons-angular';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CategoriaComponent } from './categoria/categoria.component';
 
 @NgModule({
   declarations: [
     UserComponent,
-    ProdutoComponent
+    ProdutoComponent,
+    CategoriaComponent
   ],
   imports: [
     CommonModule,

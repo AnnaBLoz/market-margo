@@ -26,7 +26,7 @@ export const navItems: INavData[] = [
   // },
    {
      name: 'Categorias',
-     url: '/base',
+     url: '/registers/categoria',
      iconComponent: { name: 'cil-puzzle' },
   //   children: [
   //     {
