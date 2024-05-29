@@ -8,12 +8,14 @@ import { IconModule } from '@coreui/icons-angular';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CategoriaComponent } from './categoria/categoria.component';
+import { GondolaComponent } from './gondola/gondola.component';
 
 @NgModule({
   declarations: [
     UserComponent,
     ProdutoComponent,
-    CategoriaComponent
+    CategoriaComponent,
+    GondolaComponent
   ],
   imports: [
     CommonModule,

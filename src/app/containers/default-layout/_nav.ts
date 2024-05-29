@@ -93,7 +93,7 @@ export const navItems: INavData[] = [
    },
    {
      name: 'Gôndolas',
-     url: '/buttons',
+     url: '/registers/gondola',
      iconComponent: { name: 'cil-applications-settings' },
   //   children: [
   //     {
