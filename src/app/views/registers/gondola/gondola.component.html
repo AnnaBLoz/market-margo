@@ -3,6 +3,11 @@
       <c-card-header>
         Nova Gôndola
       </c-card-header>
+
+      <div *ngIf="alert.visivel" class="{{alert.tipo}}">
+        {{alert.mensagem}}
+      </div>
+  
       <c-card-body>
         <div class="form-group">
           <label for="nome">Nome:</label>

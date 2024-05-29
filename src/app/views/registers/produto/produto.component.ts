@@ -17,6 +17,7 @@ export class ProdutoComponent implements OnInit {
   nome: string = '';
   setor: string = '';
   quantidade: number = 0;
+  idCategoria: number = 0;
   preco: number = 0;
   
   produtos: any = [];
@@ -27,10 +28,13 @@ export class ProdutoComponent implements OnInit {
     mensagem: ''
   }
 
+  categorias: any = [];
+
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
     this.getProdutos();
+    this.getCategorias();
   }
 
   limpar() {
@@ -38,6 +42,7 @@ export class ProdutoComponent implements OnInit {
     this.setor = '';
     this.quantidade = 0;
     this.preco = 0;
+    this.idCategoria = 0;
   }
 
   salvar() {
@@ -45,7 +50,8 @@ export class ProdutoComponent implements OnInit {
       nome: this.nome,
       setor: this.setor,
       quantidade: this.quantidade,
-      preco: this.preco
+      preco: this.preco,
+      id_categoria: this.idCategoria
     };
 
     this.criarProdutoAPI(produto).subscribe(response => {
@@ -78,6 +84,7 @@ export class ProdutoComponent implements OnInit {
   getProdutos() {
     this.getProdutosAPI().subscribe(response => {
       this.produtos = response;
+      console.log(this.produtos);
     }, error => {
       this.alert = {
         visivel: true,
@@ -90,6 +97,21 @@ export class ProdutoComponent implements OnInit {
   getProdutosAPI(): Observable<any> {
     return this.http.get(
       'https://localhost:7127/Produto',
+      httpOptions
+    );
+  }
+
+  getCategorias() {
+    this.categoriasAPI().subscribe(response => {
+      this.categorias = response;
+    }, error => {
+      console.error('Erro ao obter categorias', error);
+    });
+  }
+
+  categoriasAPI() {
+    return this.http.get(
+      'https://localhost:7127/Categoria',
       httpOptions
     );
   }
