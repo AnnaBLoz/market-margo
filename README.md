@@ -62,6 +62,11 @@ Quantidade de cadastros de produtos (Hoje). Transações(Hoje). Vendas com suces
 2. Instale as dependências (`npm install`)
 3. Execute o projeto (`ng serve`)
 
+## Como Executar o QSL do projeto (Banco de dados)
+
+1. Baixe o script do sql ('MarketMargoDBQuery.sql')
+2. Acesse o MySQL Workbench e abra o arquivo como script
+
 ## PROJETO Back-End
 
 - **BackEnd** [GIT](https://github.com/SabineSantos21/MarketMargoAPI)
