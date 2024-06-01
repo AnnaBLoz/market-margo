@@ -63,8 +63,11 @@ Quantidade de cadastros de produtos (Hoje). Transações(Hoje). Vendas com suces
 ## Como Executar o Projeto (FRONT-END)
 
 1. Clone o repositório (`git clone https://github.com/AnnaBLoz/market-margo.git`)
-2. Instale as dependências (`npm install`)
-3. Execute o projeto (`ng serve`)
+2. Versões utilizadas do Angular e Node
+   * Angular CLI: 17.2.0
+   * Node: 18.13.0
+4. Instale as dependências (`npm install`)
+5. Execute o projeto (`ng serve`)
 
 ## Como Executar o SQL do projeto (Banco de dados)
 
