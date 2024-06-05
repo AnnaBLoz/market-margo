@@ -84,7 +84,6 @@ export class ProdutoComponent implements OnInit {
   getProdutos() {
     this.getProdutosAPI().subscribe(response => {
       this.produtos = response;
-      console.log(this.produtos);
     }, error => {
       this.alert = {
         visivel: true,

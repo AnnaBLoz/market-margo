@@ -1,128 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { DashboardChartsData, IChartProps } from './dashboard-charts-data';
-
-interface IUser {
-  name: string;
-  state: string;
-  registered: string;
-  country: string;
-  usage: number;
-  period: string;
-  payment: string;
-  activity: string;
-  avatar: string;
-  status: string;
-  color: string;
-}
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+  }),
+};
 
 @Component({
   templateUrl: 'dashboard.component.html',
   styleUrls: ['dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  constructor(private chartsData: DashboardChartsData) {
-  }
+  cardProdutosCadastrados: any = null;
+  cardTransacoesHoje: any = null;
+  cardVendasComInsucesso: any = null;
+  cardVendasComSucesso: any = null;
+  chatQuantidadeDeVendasHojePorProduto: any = null;
+  chatQuantidadeProdutosVendidosPorCategoria: any = null;
 
-  public users: IUser[] = [
-    {
-      name: 'Yiorgos Avraamu',
-      state: 'New',
-      registered: 'Jan 1, 2021',
-      country: 'Us',
-      usage: 50,
-      period: 'Jun 11, 2021 - Jul 10, 2021',
-      payment: 'Mastercard',
-      activity: '10 sec ago',
-      avatar: './assets/img/avatars/1.jpg',
-      status: 'success',
-      color: 'success'
-    },
-    {
-      name: 'Avram Tarasios',
-      state: 'Recurring ',
-      registered: 'Jan 1, 2021',
-      country: 'Br',
-      usage: 10,
-      period: 'Jun 11, 2021 - Jul 10, 2021',
-      payment: 'Visa',
-      activity: '5 minutes ago',
-      avatar: './assets/img/avatars/2.jpg',
-      status: 'danger',
-      color: 'info'
-    },
-    {
-      name: 'Quintin Ed',
-      state: 'New',
-      registered: 'Jan 1, 2021',
-      country: 'In',
-      usage: 74,
-      period: 'Jun 11, 2021 - Jul 10, 2021',
-      payment: 'Stripe',
-      activity: '1 hour ago',
-      avatar: './assets/img/avatars/3.jpg',
-      status: 'warning',
-      color: 'warning'
-    },
-    {
-      name: 'Enéas Kwadwo',
-      state: 'Sleep',
-      registered: 'Jan 1, 2021',
-      country: 'Fr',
-      usage: 98,
-      period: 'Jun 11, 2021 - Jul 10, 2021',
-      payment: 'Paypal',
-      activity: 'Last month',
-      avatar: './assets/img/avatars/4.jpg',
-      status: 'secondary',
-      color: 'danger'
-    },
-    {
-      name: 'Agapetus Tadeáš',
-      state: 'New',
-      registered: 'Jan 1, 2021',
-      country: 'Es',
-      usage: 22,
-      period: 'Jun 11, 2021 - Jul 10, 2021',
-      payment: 'ApplePay',
-      activity: 'Last week',
-      avatar: './assets/img/avatars/5.jpg',
-      status: 'success',
-      color: 'primary'
-    },
-    {
-      name: 'Friderik Dávid',
-      state: 'New',
-      registered: 'Jan 1, 2021',
-      country: 'Pl',
-      usage: 43,
-      period: 'Jun 11, 2021 - Jul 10, 2021',
-      payment: 'Amex',
-      activity: 'Yesterday',
-      avatar: './assets/img/avatars/6.jpg',
-      status: 'info',
-      color: 'dark'
-    }
-  ];
-  public mainChart: IChartProps = {};
-  public chart: Array<IChartProps> = [];
-  public trafficRadioGroup = new UntypedFormGroup({
-    trafficRadio: new UntypedFormControl('Month')
-  });
+  constructor(
+    private http: HttpClient
+  ) {
+  }
 
   ngOnInit(): void {
-    this.initCharts();
-  }
-
-  initCharts(): void {
-    this.mainChart = this.chartsData.mainChart;
-  }
-
-  setTrafficPeriod(value: string): void {
-    this.trafficRadioGroup.setValue({ trafficRadio: value });
-    this.chartsData.initMainChart(value);
-    this.initCharts();
+    this.getDashboard();
   }
 
   chartPieData = {
@@ -155,4 +58,49 @@ export class DashboardComponent implements OnInit {
       }
     ]
   };
+
+  getDashboard() {
+    this.getDashboardAPI().subscribe(
+      (data : any) => {
+        this.cardProdutosCadastrados = data.cardProdutosCadastrados;
+        this.cardTransacoesHoje = data.cardTransacoesHoje;
+        this.cardVendasComInsucesso = data.cardVendasComInsucesso;
+        this.cardVendasComSucesso = data.cardVendasComSucesso;
+        this.chatQuantidadeDeVendasHojePorProduto = data.chatQuantidadeDeVendasHojePorProduto;
+        this.chatQuantidadeProdutosVendidosPorCategoria = data.chatQuantidadeProdutosVendidosPorCategoria;
+
+        this.chartPieData = {
+          labels: this.chatQuantidadeDeVendasHojePorProduto.label,
+          datasets: [
+            {
+              data: this.chatQuantidadeDeVendasHojePorProduto.value,
+              backgroundColor: ['#FF5733', '#33FF57', '#3357FF', '#FF33A1', '#33FFA1', '#A133FF', '#FFBD33', '#33FFBD', '#33A1FF'],
+              hoverBackgroundColor: ['#FF5733', '#33FF57', '#3357FF', '#FF33A1', '#33FFA1', '#A133FF', '#FFBD33', '#33FFBD', '#33A1FF']
+            }
+          ]
+        };
+
+        this.chartBarData = {
+          labels: this.chatQuantidadeProdutosVendidosPorCategoria.label,
+          datasets: [
+            {
+              label: 'Produtos',
+              backgroundColor: '#f87979',
+              data: this.chatQuantidadeProdutosVendidosPorCategoria.value
+            }
+          ]
+        };
+      },
+      error => {
+        console.error('There was an error!', error);
+      }
+    );
+  }
+
+  getDashboardAPI(){
+    return this.http.get(
+      'https://localhost:7127/Dashboard',
+      httpOptions
+    );
+  }
 }

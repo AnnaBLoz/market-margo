@@ -1,5 +1,20 @@
-<app-widgets-dropdown></app-widgets-dropdown>
-<c-card class="mb-4">
+<div
+*ngIf="
+  cardProdutosCadastrados != null &&
+  cardTransacoesHoje != null &&
+  cardVendasComInsucesso != null &&
+  cardVendasComSucesso != null
+"
+>
+  <app-widgets-dropdown
+  [cardProdutosCadastrados]="cardProdutosCadastrados"
+  [cardTransacoesHoje]="cardTransacoesHoje"
+  [cardVendasComInsucesso]="cardVendasComInsucesso"
+  [cardVendasComSucesso]="cardVendasComSucesso"
+  ></app-widgets-dropdown>
+</div>
+
+<c-card class="mb-4" *ngIf="chatQuantidadeDeVendasHojePorProduto != null">
   <c-row>
     <c-col xs="12" lg="6">
       <c-card class="mb-4">
@@ -12,7 +27,7 @@
       </c-card>
     </c-col>
 
-    <c-col xs="12" lg="6">
+    <c-col xs="12" lg="6" *ngIf="chatQuantidadeProdutosVendidosPorCategoria != null">
       <c-card class="mb-4">
         <c-card-header>
           Vendas Hoje por Produtos
@@ -24,3 +39,17 @@
     </c-col>
   </c-row>
 </c-card>
+
+<div
+*ngIf="
+  cardProdutosCadastrados == null &&
+  cardTransacoesHoje == null &&
+  cardVendasComInsucesso == null &&
+  cardVendasComSucesso == null &&
+  chatQuantidadeDeVendasHojePorProduto == null &&
+  chatQuantidadeProdutosVendidosPorCategoria == null
+"
+class="d-flex justify-content-center align-items-center"
+>
+  <img src="../../../assets/img/loading.gif" style="height: 15vh;">
+</div>

@@ -31,7 +31,6 @@ export class LoginComponent {
     };
 
     this.loginAPI(obj).subscribe(response => {
-      console.log(response);
       this.router.navigate(['/dashboard']); 
     }, error => {
       this.loginError = true;
