@@ -84,7 +84,7 @@ export class DashboardComponent implements OnInit {
           labels: this.chatQuantidadeProdutosVendidosPorCategoria.label,
           datasets: [
             {
-              label: 'Produtos',
+              label: 'Categoria',
               backgroundColor: '#f87979',
               data: this.chatQuantidadeProdutosVendidosPorCategoria.value
             }

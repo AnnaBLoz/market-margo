@@ -19,7 +19,7 @@
     <c-col xs="12" lg="6">
       <c-card class="mb-4">
         <c-card-header>
-          Quantidade de Produtos Vendidos por Categoria
+          Quantidade de Produtos Vendidos por Produto
         </c-card-header>
         <c-card-body>
           <c-chart type="pie" [data]="chartPieData" [options]="chartPieOptions"></c-chart>
@@ -30,10 +30,10 @@
     <c-col xs="12" lg="6" *ngIf="chatQuantidadeProdutosVendidosPorCategoria != null">
       <c-card class="mb-4">
         <c-card-header>
-          Vendas Hoje por Produtos
+          Vendas Hoje por Categoria
         </c-card-header>
         <c-card-body>
-          <c-chart type="bar" [data]="chartBarData"></c-chart>
+          <c-chart type="bar" [data]="chartBarData" [options]="chartPieOptions"></c-chart>
         </c-card-body>
       </c-card>
     </c-col>
