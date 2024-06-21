@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { GondolaComponent } from './gondola/gondola.component';
 import { CaixaComponent } from './caixa/caixa.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModalEditCategoriaComponent } from './categoria/modal-edit-categoria/modal-edit-categoria.component'
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { CaixaComponent } from './caixa/caixa.component';
     ProdutoComponent,
     CategoriaComponent,
     GondolaComponent,
-    CaixaComponent
+    CaixaComponent,
+    ModalEditCategoriaComponent
   ],
   imports: [
     CommonModule,
@@ -29,6 +32,7 @@ import { CaixaComponent } from './caixa/caixa.component';
     FormModule,
     HttpClientModule,
     FormsModule,
+    NgbModule
   ]
 })
 export class RegistersModule { }

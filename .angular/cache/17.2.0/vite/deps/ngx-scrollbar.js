@@ -4,12 +4,12 @@ import {
   coerceElement,
   coerceNumberProperty,
   getRtlScrollAxisType
-} from "./chunk-IQ2KI7QE.js";
+} from "./chunk-TY7QDP3H.js";
 import {
   DOCUMENT,
   NgIf,
   isPlatformBrowser
-} from "./chunk-I53IZ5CN.js";
+} from "./chunk-VEAXCBDS.js";
 import {
   BehaviorSubject,
   ChangeDetectionStrategy,
@@ -86,7 +86,7 @@ import {
   ɵɵqueryRefresh,
   ɵɵtemplate,
   ɵɵviewQuery
-} from "./chunk-MTH2SWMI.js";
+} from "./chunk-NP5UBQMJ.js";
 import {
   __spreadProps,
   __spreadValues

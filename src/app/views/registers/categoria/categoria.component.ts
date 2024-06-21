@@ -1,6 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
+import { ModalEditCategoriaComponent } from './modal-edit-categoria/modal-edit-categoria.component';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -25,7 +27,10 @@ export class CategoriaComponent implements OnInit {
     mensagem: ''
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit() {
     this.getCategorias();
@@ -83,5 +88,9 @@ export class CategoriaComponent implements OnInit {
       'https://localhost:7127/Categoria',
       httpOptions
     );
+  }
+
+  openModalEdit() {
+    this.modalService.open(ModalEditCategoriaComponent, { ariaLabelledBy: 'modal-basic-title' });
   }
 }

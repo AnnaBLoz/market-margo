@@ -33,13 +33,18 @@
               <th>Código</th>
               <th>Nome</th>
               <th>Situação</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let categoria of categorias">
               <td>{{ categoria.id }}</td>
               <td>{{ categoria.nome }}</td>
-              <td>{{ categoria.ativo == true ? 'Ativo' : 'Inativo'}}</td> 
+              <td>{{ categoria.ativo == true ? 'Ativo' : 'Inativo'}}</td>
+              <td (click)="openModalEdit()">
+                <i class="fa fa-pencil me-4 cursor-pointer"></i>
+                <i class="fa fa-trash text-danger cursor-pointer"></i>
+              </td> 
             </tr>
           </tbody>
         </table>

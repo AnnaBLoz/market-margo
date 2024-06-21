@@ -22,7 +22,9 @@ export class CaixaComponent implements OnInit {
   total: string = '0,00';
   totalItens: number = 0;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+  ) {}
 
   ngOnInit() {
     this.createFormCaixa();
