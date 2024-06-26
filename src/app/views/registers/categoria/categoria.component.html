@@ -41,9 +41,9 @@
               <td>{{ categoria.id }}</td>
               <td>{{ categoria.nome }}</td>
               <td>{{ categoria.ativo == true ? 'Ativo' : 'Inativo'}}</td>
-              <td (click)="openModalEdit()">
-                <i class="fa fa-pencil me-4 cursor-pointer"></i>
-                <i class="fa fa-trash text-danger cursor-pointer"></i>
+              <td>
+                <i class="fa fa-pencil me-4 cursor-pointer" (click)="openModalEdit(categoria)"></i>
+                <i class="fa fa-trash text-danger cursor-pointer" (click)="deletarCategoria(categoria.id)"></i>
               </td> 
             </tr>
           </tbody>

@@ -90,7 +90,37 @@ export class CategoriaComponent implements OnInit {
     );
   }
 
-  openModalEdit() {
-    this.modalService.open(ModalEditCategoriaComponent, { ariaLabelledBy: 'modal-basic-title' });
+  openModalEdit(categoria: any) {
+    let modalRef = this.modalService.open(ModalEditCategoriaComponent, { ariaLabelledBy: 'modal-basic-title' });
+    modalRef.componentInstance.categoria = categoria
+
+    modalRef.result.then((result) => {
+      if(result == true) this.getCategorias();
+    });
+  }
+
+  deletarCategoria(id: any) {
+    this.deletarCategoriaAPI(id).subscribe((response: any) => {
+      this.alert = {
+        visivel: true,
+        tipo:'alert alert-success',
+        mensagem: 'Categoria deletada com sucesso.'
+      };
+      
+      this.getCategorias();
+    }, error => {
+      this.alert = {
+        visivel: true,
+        tipo:'alert alert-danger',
+        mensagem: 'Erro ao deletar categoria. Tente novamente.'
+      };
+    });
+  }
+
+  deletarCategoriaAPI(id: any): Observable<any> {
+    return this.http.delete(
+      `https://localhost:7127/Categoria/${id}`,
+      httpOptions
+    );
   }
 }
