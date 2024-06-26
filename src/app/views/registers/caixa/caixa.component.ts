@@ -60,7 +60,8 @@ export class CaixaComponent implements OnInit {
 
   getProductsByCategory(idCategory : any) {
     this.getProductsByCategoryAPI(idCategory).subscribe((response: any) => {
-      this.products = response;      
+      this.products = response;   
+      console.log(this.products)   
     }, (error : any) => {
       this.alert = {
         visivel: true,
@@ -77,25 +78,39 @@ export class CaixaComponent implements OnInit {
     );
   }
 
-  addCompra() {    
-    let compra = {
-      "id_produto": parseInt(this.caixa.produto),
-      "quantidade": parseInt(this.caixa.quantidade),
-      "produto": this.products.find((p: any) => p.id == this.caixa.produto),
-      "categoria": this.categorias.find((c : any) => c.id == this.caixa.categoria)
-    }
+  addCompra() {
+    this.alert = {};
 
-    this.compras.push(compra);
-    this.calcularTotal();
-    this.createFormCaixa();    
+    let produtoSelecionado = this.products.find((p: any) => p.id == this.caixa.produto)
+    
+    if(produtoSelecionado.quantidade < this.caixa.quantidade) {
+      this.alert = {
+        visivel: true,
+        tipo:'alert alert-warning',
+        mensagem: `Não é possível adicionar esse produto, pois a quantidade é superior a que está disponível. Estão disponíveis apenas ${produtoSelecionado.quantidade} unidades de ${produtoSelecionado.nome}`
+      };
+    }
+    else {
+      let compra = {
+        "id_produto": parseInt(this.caixa.produto),
+        "quantidade": parseInt(this.caixa.quantidade),
+        "produto": this.products.find((p: any) => p.id == this.caixa.produto),
+        "categoria": this.categorias.find((c : any) => c.id == this.caixa.categoria)
+      }
+
+      this.compras.push(compra);
+      this.calcularTotal();
+      this.createFormCaixa();    
+    }
   }
 
-  finish() {
+  finish(success: any) {
     let finishCompras = {
       produtos_transacao: this.compras.map((item: any) => ({
         id_produto: item.id_produto,
         quantidade: item.quantidade
-      }))
+      })),
+      success: success
     };
 
     this.addCompraAPI(finishCompras).subscribe((response: any) => {
