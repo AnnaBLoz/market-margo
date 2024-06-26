@@ -137,7 +137,7 @@ export class ProdutoComponent implements OnInit {
         mensagem: 'Produto deletado com sucesso.'
       };
       
-      this.getCategorias();
+      this.getProdutos();
     }, error => {
       this.alert = {
         visivel: true,

@@ -14,6 +14,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalEditCategoriaComponent } from './categoria/modal-edit-categoria/modal-edit-categoria.component'
 import { ModalEditUserComponent } from './user/modal-edit-user/modal-edit-user.component'
 import { ModalEditProdutoComponent } from './produto/modal-edit-produto/modal-edit-produto.component'
+import { ModalEditGondolaComponent } from './gondola/modal-edit-gondola/modal-edit-gondola.component'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ModalEditProdutoComponent } from './produto/modal-edit-produto/modal-ed
     CaixaComponent,
     ModalEditCategoriaComponent,
     ModalEditUserComponent,
-    ModalEditProdutoComponent
+    ModalEditProdutoComponent,
+    ModalEditGondolaComponent
   ],
   imports: [
     CommonModule,

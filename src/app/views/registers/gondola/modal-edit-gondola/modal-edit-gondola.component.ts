@@ -10,21 +10,19 @@ const httpOptions = {
 };
 
 @Component({
-  selector: 'app-modal-edit-produto',
-  templateUrl: './modal-edit-produto.component.html',
-  styleUrl: './modal-edit-produto.component.scss'
+  selector: 'app-modal-edit-gondola',
+  templateUrl: './modal-edit-gondola.component.html',
+  styleUrl: './modal-edit-gondola.component.scss'
 })
-export class ModalEditProdutoComponent implements OnInit {
+export class ModalEditGondolaComponent implements OnInit {
   nome: string = '';
-  setor: string = '';
-  quantidade: number = 0;
-  idCategoria: number = 0;
-  preco: number = 0;
+  capacidade: string = '';
+  categoria: string = '';
   ativo: any = true;
 
   categorias: any = [];
 
-  @Input() produto: any;
+  @Input() gondola: any;
 
   constructor(
     private http: HttpClient,
@@ -32,38 +30,34 @@ export class ModalEditProdutoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getValoresProduto();
+    this.getValoresGondola();
     this.getCategorias();
   }
 
-  getValoresProduto() {
-    this.nome = this.produto.nome;
-    this.setor = this.produto.setor;
-    this.quantidade = this.produto.quantidade;
-    this.idCategoria = this.produto.id_categoria;
-    this.preco = this.produto.preco;
-    this.ativo = this.produto.ativo;
+  getValoresGondola() {
+    this.nome = this.gondola.nome;
+    this.capacidade = this.gondola.capacidade;
+    this.categoria = this.gondola.id_categoria;
+    this.ativo = this.gondola.ativo;
   }
 
-  atualizarProduto(id: any) {
+  atualizarGondola(id: any) {
     var object = {
       nome: this.nome,
-      setor: this.setor,
-      quantidade: this.quantidade,
-      idCategoria: this.idCategoria,
-      preco: this.preco,
+      capacidade: parseInt(this.capacidade),
+      id_categoria: this.categoria,
       ativo: this.ativo == 'true' || this.ativo == true ? true : false
     }
 
-    this.atualizarProdutoAPI(id, object).subscribe((response: any) => {
+    this.atualizarGondolaAPI(id, object).subscribe((response: any) => {
       this.activeModal.close(true);
     })
   }
 
-  atualizarProdutoAPI(id: any, produto: any): Observable<any> {
+  atualizarGondolaAPI(id: any, gondola: any): Observable<any> {
     return this.http.put(
-      `https://localhost:7127/Produto/${id}`,
-      produto,
+      `https://localhost:7127/Gondola/${id}`,
+      gondola,
       httpOptions
     );
   }

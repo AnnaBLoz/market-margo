@@ -46,6 +46,7 @@
               <th>Capacidade</th>
               <th>Categoria</th>
               <th>Situação</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -55,6 +56,10 @@
               <td>{{ gondola.capacidade }}</td>
               <td>{{ gondola.nomeCategoria }}</td>
               <td>{{ gondola.ativo == true ? 'Ativo' : 'Inativo'}}</td> 
+              <td>
+                <i class="fa fa-pencil me-4 cursor-pointer" (click)="openModalEdit(gondola)"></i>
+                <i class="fa fa-trash text-danger cursor-pointer" (click)="deletarProduto(gondola.id)"></i>
+              </td> 
             </tr>
           </tbody>
         </table>
