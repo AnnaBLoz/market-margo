@@ -1,0 +1,42 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Atualizar Categoria</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="this.activeModal.close(false)"></button>
+</div>
+<div class="modal-body">
+    <form>
+        <div class="mb-3">
+            <div class="form-group mt-2">
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" id="nome" placeholder="" [(ngModel)]="nome"
+                    [ngModelOptions]="{standalone: true}">
+            </div>
+
+            <div class="form-group mt-2">
+                <label for="email">E-mail:</label>
+                <input type="email" class="form-control" id="email" placeholder="" [(ngModel)]="email"
+                    [ngModelOptions]="{standalone: true}">
+            </div>
+
+            <div class="form-group mt-2">
+                <label for="funcao">Função:</label>
+                <select class="form-control" id="funcao" [(ngModel)]="funcao" [ngModelOptions]="{standalone: true}">
+                    <option value="">Selecione a função</option>
+                    <option value="1">Gerente</option>
+                    <option value="2">Estoquista</option>
+                    <option value="3">Administrador</option>
+                    <option value="4">Caixa</option>
+                </select>
+            </div>
+            <div class="form-group mt-2">
+                <label for="ativo">Situação:</label>
+                <select class="form-control" id="ativo" [(ngModel)]="ativo" [ngModelOptions]="{standalone: true}">
+                    <option [value]="true">Ativo</option>
+                    <option [value]="false">Inativo</option>
+                </select>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-success" (click)="atualizarUsuario(usuario.id)">Atualizar</button>
+</div>

@@ -27,7 +27,6 @@ export class ModalEditCategoriaComponent implements OnInit {
   ){}
 
   ngOnInit() {
-    console.log(this.categoria)
     this.getValoresCategorias();
   }
 

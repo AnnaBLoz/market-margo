@@ -108,6 +108,10 @@
             <td>{{ usuario.email }}</td>
             <td>{{ usuario.nomeFuncao }}</td>
             <td>{{ usuario.ativo == true ? 'Ativo' : 'Inativo'}}</td>
+            <td>
+              <i class="fa fa-pencil me-4 cursor-pointer" (click)="openModalEdit(usuario)"></i>
+              <i class="fa fa-trash text-danger cursor-pointer" (click)="deletarUsuario(usuario.id)"></i>
+            </td> 
           </tr>
         </tbody>
       </table>

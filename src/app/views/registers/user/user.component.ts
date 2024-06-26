@@ -1,6 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
+import { ModalEditUserComponent } from './modal-edit-user/modal-edit-user.component';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -28,7 +30,10 @@ export class UserComponent implements OnInit {
     mensagem: ''
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private modalService: NgbModal
+  ) { }
 
   ngOnInit() {
     this.getUsuarios();
@@ -90,6 +95,40 @@ export class UserComponent implements OnInit {
   getUsuariosAPI(): Observable<any> {
     return this.http.get(
       'https://localhost:7127/Usuario',
+      httpOptions
+    );
+  }
+
+  openModalEdit(usuario: any) {
+    let modalRef = this.modalService.open(ModalEditUserComponent, { ariaLabelledBy: 'modal-basic-title' });
+    modalRef.componentInstance.usuario = usuario
+
+    modalRef.result.then((result) => {
+      if(result == true) this.getUsuarios();
+    });
+  }
+
+  deletarUsuario(id: any) {
+    this.deletarUsuarioAPI(id).subscribe((response: any) => {
+      this.alert = {
+        visivel: true,
+        tipo:'alert alert-success',
+        mensagem: 'Usuario deletado com sucesso.'
+      };
+      
+      this.getUsuarios();
+    }, error => {
+      this.alert = {
+        visivel: true,
+        tipo:'alert alert-danger',
+        mensagem: 'Erro ao deletar usuario. Tente novamente.'
+      };
+    });
+  }
+
+  deletarUsuarioAPI(id: any): Observable<any> {
+    return this.http.delete(
+      `https://localhost:7127/Usuario/${id}`,
       httpOptions
     );
   }
