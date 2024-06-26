@@ -1,6 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
+import { ModalEditProdutoComponent } from './modal-edit-produto/modal-edit-produto.component';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -30,7 +32,10 @@ export class ProdutoComponent implements OnInit {
 
   categorias: any = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit() {
     this.getProdutos();
@@ -111,6 +116,40 @@ export class ProdutoComponent implements OnInit {
   categoriasAPI() {
     return this.http.get(
       'https://localhost:7127/Categoria',
+      httpOptions
+    );
+  }
+
+  openModalEdit(produto: any) {
+    let modalRef = this.modalService.open(ModalEditProdutoComponent, { ariaLabelledBy: 'modal-basic-title' });
+    modalRef.componentInstance.produto = produto
+
+    modalRef.result.then((result) => {
+      if(result == true) this.getProdutos();
+    });
+  }
+
+  deletarProduto(id: any) {
+    this.deletarProdutoAPI(id).subscribe((response: any) => {
+      this.alert = {
+        visivel: true,
+        tipo:'alert alert-success',
+        mensagem: 'Produto deletado com sucesso.'
+      };
+      
+      this.getCategorias();
+    }, error => {
+      this.alert = {
+        visivel: true,
+        tipo:'alert alert-danger',
+        mensagem: 'Erro ao deletar produto. Tente novamente.'
+      };
+    });
+  }
+
+  deletarProdutoAPI(id: any): Observable<any> {
+    return this.http.delete(
+      `https://localhost:7127/Produto/${id}`,
       httpOptions
     );
   }

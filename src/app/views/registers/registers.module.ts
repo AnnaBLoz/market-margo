@@ -13,6 +13,7 @@ import { CaixaComponent } from './caixa/caixa.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalEditCategoriaComponent } from './categoria/modal-edit-categoria/modal-edit-categoria.component'
 import { ModalEditUserComponent } from './user/modal-edit-user/modal-edit-user.component'
+import { ModalEditProdutoComponent } from './produto/modal-edit-produto/modal-edit-produto.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ModalEditUserComponent } from './user/modal-edit-user/modal-edit-user.c
     GondolaComponent,
     CaixaComponent,
     ModalEditCategoriaComponent,
-    ModalEditUserComponent
+    ModalEditUserComponent,
+    ModalEditProdutoComponent
   ],
   imports: [
     CommonModule,

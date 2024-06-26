@@ -29,7 +29,6 @@ export class ModalEditUserComponent implements OnInit {
 
   ngOnInit() {
     this.getValoresUsuario();
-    console.log(this.usuario)
   }
 
   getValoresUsuario() {
@@ -44,7 +43,7 @@ export class ModalEditUserComponent implements OnInit {
       nome: this.nome,
       email : this.email,
       funcao: this.funcao,
-      ativo: this.ativo == 'true' ? true : false
+      ativo: this.ativo == 'true' || this.ativo == true ? true : false
     }
 
     this.atualizarUsuarioAPI(id, object).subscribe((response: any) => {

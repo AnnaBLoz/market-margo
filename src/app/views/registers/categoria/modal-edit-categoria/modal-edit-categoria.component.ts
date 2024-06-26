@@ -38,7 +38,7 @@ export class ModalEditCategoriaComponent implements OnInit {
   atualizarCategoria(id: any) {
     var object = {
       nome: this.nome,
-      ativo: this.ativo == 'true' ? true : false
+      ativo: this.ativo == 'true' || this.ativo == true ? true : false
     }
 
     this.atualizarCategoriaAPI(id, object).subscribe((response: any) => {

@@ -1,0 +1,49 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Atualizar Produto</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="this.activeModal.close(false)"></button>
+</div>
+<div class="modal-body">
+    <form>
+        <div class="mb-3">
+            <div class="form-group mt-2">
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" id="nome" placeholder="Digite o nome" [(ngModel)]="nome" [ngModelOptions]="{standalone: true}">
+            </div>
+
+            <div class="form-group mt-2">
+                <label for="setor">Setor:</label>
+                <input type="text" class="form-control" id="setor" placeholder="Digite o setor" [(ngModel)]="setor" [ngModelOptions]="{standalone: true}">
+            </div>
+
+            <div class="form-group mt-2">
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" class="form-control" id="quantidade" placeholder="Digite a quantidade"
+                    [(ngModel)]="quantidade" [ngModelOptions]="{standalone: true}">
+            </div>
+
+            <div class="form-group mt-2">
+                <label for="preco">Preço:</label>
+                <input type="text" class="form-control" id="preco" placeholder="Digite o preço" [(ngModel)]="preco" [ngModelOptions]="{standalone: true}">
+            </div>
+
+            <div class="form-group mt-2">
+                <label for="categoria">Categoria:</label>
+                <select class="form-control" id="categoria" [(ngModel)]="idCategoria" [ngModelOptions]="{standalone: true}">
+                    <option value="">Selecione a categoria</option>
+                    <option *ngFor="let categoria of categorias" [value]="categoria.id">{{ categoria.nome }}</option>
+                </select>
+            </div>
+
+            <div class="form-group mt-2">
+                <label for="ativo">Situação:</label>
+                <select class="form-control" id="ativo" [(ngModel)]="ativo" [ngModelOptions]="{standalone: true}">
+                    <option [value]="true">Ativo</option>
+                    <option [value]="false">Inativo</option>
+                </select> 
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-success" (click)="atualizarProduto(produto.id)">Atualizar</button>
+</div>
